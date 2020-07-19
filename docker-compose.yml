@@ -1,0 +1,9 @@
+version: "3.5"
+
+services:
+  eureka:
+    container_name: registry-service
+    build: .
+    restart: always
+    ports:
+      - 8099:8099
