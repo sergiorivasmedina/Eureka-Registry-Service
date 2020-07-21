@@ -1,8 +1,8 @@
-FROM maven:ibmjava-alpine
-MAINTAINER Sergio Rivas Medina -> srivasme@everis.com
+FROM openjdk:8-alpine
+LABEL maintainer="Sergio Rivas Medina -> srivasme@everis.com"
 
-COPY ./ ./app
+COPY ./target /app 
+RUN cd /app/
 EXPOSE 8099
-WORKDIR ./app/
-RUN mvn clean package && cd target/
+WORKDIR /app/
 ENTRYPOINT ["java", "-jar", "registry-service-0.0.1-SNAPSHOT.jar"]

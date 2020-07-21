@@ -7,3 +7,10 @@ services:
     restart: always
     ports:
       - 8099:8099
+    networks:
+      - bank-network
+
+networks:
+  bank-network:
+    external: 
+      name: bank-network
